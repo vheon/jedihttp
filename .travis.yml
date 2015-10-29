@@ -1,0 +1,15 @@
+language: python
+sudo: false
+os:
+  - linux
+env:
+  # TOXENV specify under which environment tox should launch the tests
+  # https://testrun.org/tox/latest/
+  - TOXENV=py26
+  - TOXENV=py27
+  - TOXENV=py33
+before_install: git submodule update --init --recursive
+install: pip install tox
+script: tox
+notifications:
+  email: false
