@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 #    limitations under the License.
 
+
 import sys
 import json
 import hmac
@@ -138,4 +139,3 @@ else:
 
 def compare_digest( a, b ):
   return SecureStringsEqual( a, b )
-
