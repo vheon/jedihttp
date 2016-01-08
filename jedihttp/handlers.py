@@ -73,6 +73,13 @@ def gotoassignments():
   return _JsonResponse( _FormatGoToDefinitions( script.goto_assignments() ) )
 
 
+@app.post( '/findreferences' )
+def references():
+  logger.debug( 'received /findreferences request' )
+  script = _GetJediScript( request.json )
+  return _JsonResponse( _FormatGoToDefinitions( script.usages() ) )
+
+
 def _FormatGoToDefinitions( definitions ):
   return {
       'definitions': [ {
