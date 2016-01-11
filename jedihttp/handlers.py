@@ -27,6 +27,10 @@ except ImportError:
   import httplib
 
 
+# num bytes for the request body buffer; request.json only works if the request
+# size is less than this
+bottle.Request.MEMFILE_MAX = 1000 * 1024
+
 logger = logging.getLogger( __name__ )
 app = Bottle( __name__ )
 
