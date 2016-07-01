@@ -12,14 +12,14 @@
 #    limitations under the License.
 
 
-from jedihttp import utils
+from . import utils
 utils.AddVendorFolderToSysPath()
 
 import jedi
 import logging
 import json
 import bottle
-from jedihttp import hmaclib
+from . import hmaclib
 from bottle import response, request, Bottle
 from threading import Lock
 
