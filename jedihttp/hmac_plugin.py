@@ -14,7 +14,7 @@
 
 import logging
 from bottle import request, response, abort
-from jedihttp import hmaclib
+from . import hmaclib
 
 try:
   from urlparse import urlparse
