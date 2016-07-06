@@ -19,6 +19,8 @@ def AddVendorFolderToSysPath():
   vendor_folder = os.path.join( os.path.dirname( __file__ ),
                                 '..',
                                 'vendor' )
+  if not os.path.exists( vendor_folder ):
+    return
 
   for folder in os.listdir( vendor_folder ):
     sys.path.insert( 0, os.path.realpath( os.path.join( vendor_folder,
