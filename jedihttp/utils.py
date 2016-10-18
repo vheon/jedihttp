@@ -15,6 +15,18 @@ import os
 import sys
 
 
+try:
+    dict.iteritems
+except AttributeError:
+    # Python 3
+    def iteritems( dictionary ):
+        return iter( dictionary.items() )
+else:
+    # Python 2
+    def iteritems( dictionary ):
+        return dictionary.iteritems()
+
+
 def AddVendorFolderToSysPath():
   vendor_folder = os.path.join( os.path.dirname( __file__ ),
                                 '..',
