@@ -18,6 +18,7 @@ import sys
 def add_vendor_folder_to_sys_path():
     vendor_folder = os.path.join(os.path.dirname(__file__), '..', 'vendor')
 
-    for folder in os.listdir(vendor_folder):
-        sys.path.insert(0, os.path.realpath(os.path.join(vendor_folder,
-                                                         folder)))
+    if os.path.exists(vendor_folder):
+        for folder in os.listdir(vendor_folder):
+            sys.path.insert(0, os.path.realpath(os.path.join(vendor_folder,
+                                                             folder)))
