@@ -414,6 +414,28 @@ def test_usages_settings_additional_dynamic_modules():
   ) )
 
 
+def test_call_signatures():
+  app = TestApp( handlers.app )
+  filepath = fixture_filepath( 'call_signatures.py' )
+  request_data = {
+      'source': open( filepath ).read(),
+      'line': 4,
+      'col': 8,
+      'source_path': filepath
+  }
+
+  signatures = app.post_json( '/callsignatures',
+                              request_data ).json[ 'call_signatures' ]
+
+  assert_that( signatures, has_length( 1 ) )
+  assert_that( signatures, has_item(
+    {
+      'name' : 'test',
+      'index' : 1,
+      'params' : ['a', 'b', 'c']
+    } ) )
+
+
 @py3only
 def test_py3():
   app = TestApp( handlers.app )

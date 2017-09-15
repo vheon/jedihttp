@@ -152,6 +152,23 @@ def _FormatDefinitions( definitions ):
   }
 
 
+@app.post( '/callsignatures' )
+def callsignatures():
+  logger.debug( 'received /callsignatures request' )
+  script = _GetJediScript( request.json )
+  return _JsonResponse( _FormatSignatures( script.call_signatures() ) )
+
+
+def _FormatSignatures( call_signatures ):
+  return {
+    'call_signatures' : [ {
+      'name':   signature.name,
+      'index':  signature.index,
+      'params': [param.description for param in signature.params]
+    } for signature in call_signatures]
+  }
+
+
 def _GetJediScript( request_data ):
   return jedi.Script( request_data[ 'source' ],
                       request_data[ 'line' ],
