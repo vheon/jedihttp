@@ -1,4 +1,4 @@
-#     Copyright 2015 Cedraro Andrea <a.cedraro@gmail.com>
+#     Copyright 2017 SUSE Inc. <cbosdonnat@suse.com>
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -10,15 +10,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 #    limitations under the License.
-
 import os
-import sys
+from setuptools import setup
 
-
-def add_vendor_folder_to_sys_path():
-    vendor_folder = os.path.join(os.path.dirname(__file__), '..', 'vendor')
-
-    if os.path.exists(vendor_folder):
-        for folder in os.listdir(vendor_folder):
-            sys.path.insert(0, os.path.realpath(os.path.join(vendor_folder,
-                                                             folder)))
+setup(
+    name = "jedihttp",
+    version = "0.0.0",
+    author = "Andrea Cedraro",
+    author_email = "a.cedraro@gmail.com",
+    description = ("HTTP/JSON wrapper around jedi"),
+    license = "Apache-2.0",
+    url = "https://github.com/vheon/JediHTTP",
+    packages = ['jedihttp'],
+    scripts = ['jedihttp-server'],
+    install_requires = ['waitress',
+                        'bottle',
+                        'argparse'],
+)

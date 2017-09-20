@@ -41,7 +41,7 @@ class HmacAuth(requests.auth.AuthBase):
 PORT = 50000
 SECRET = 'secret'
 PATH_TO_JEDIHTTP = path.abspath(path.join(path.dirname(__file__),
-                                          '..', '..', 'jedihttp.py'))
+                                          '..', '..', 'jedihttp-server'))
 
 
 def wait_for_jedihttp_to_start(jedihttp):
