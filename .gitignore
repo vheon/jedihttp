@@ -4,3 +4,4 @@ __pycache__/
 .tox/
 .coverage
 cover/
+*.swp
