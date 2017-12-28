@@ -30,8 +30,8 @@ def start_user_config():
         if os.path.exists(os.path.join(work_folder, config_py)):
             sys.path.insert(0, os.path.realpath(work_folder))
             import vimrc
-            onStartJedihttp = getattr(vimrc, 'onStartJedihttp', None)
-            if onStartJedihttp:
-                onStartJedihttp()
+            on_start_jedihttp = getattr(vimrc, 'on_start_jedihttp', None)
+            if on_start_jedihttp:
+                on_start_jedihttp()
             break
         work_folder = os.path.dirname(work_folder)

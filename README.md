@@ -366,8 +366,8 @@ I'm not a python programmer but I'm using this to experiment with python a bit.
 #### add your project path to python's sys.path for JediHttp
 
 1. add vimrc.py in your/project/root/directory
-2. define fucticon onStartJediyhttp in vimrc.py, like example/vimrc.py
-3. @onStartJediyhttp, add your local path to sys.path
+2. define fucticon on_start_jedihttp in vimrc.py, like example/vimrc.py
+3. @on_start_jedihttp, add your local path to sys.path
 
 
 [jedi]: http://github.com/davidhalter/jedi
