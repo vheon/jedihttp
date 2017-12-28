@@ -21,3 +21,17 @@ def add_vendor_folder_to_sys_path():
     for folder in os.listdir(vendor_folder):
         sys.path.insert(0, os.path.realpath(os.path.join(vendor_folder,
                                                          folder)))
+
+
+def start_user_config():
+    config_py = 'vimrc.py'
+    work_folder = os.getcwd()
+    while not os.path.ismount(work_folder):
+        if os.path.exists(os.path.join(work_folder, config_py)):
+            sys.path.insert(0, os.path.realpath(work_folder))
+            import vimrc
+            on_start_jedihttp = getattr(vimrc, 'on_start_jedihttp', None)
+            if on_start_jedihttp:
+                on_start_jedihttp()
+            break
+        work_folder = os.path.dirname(work_folder)
