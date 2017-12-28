@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__),
                                                 '..')))
 from jedihttp import utils
 utils.add_vendor_folder_to_sys_path()
+utils.start_user_config()
 
 import logging
 import json
