@@ -25,10 +25,10 @@ def add_vendor_folder_to_sys_path():
 
 def start_user_config():
     config_py = 'vimrc.py'
-    work_folder = os.getcwdu()
+    work_folder = os.getcwd()
     while not os.path.ismount(work_folder):
         if os.path.exists(os.path.join(work_folder, config_py)):
-            sys.path.insert(0, os.path.relpath(work_folder))
+            sys.path.insert(0, os.path.realpath(work_folder))
             import vimrc
             onStartJedihttp = getattr(vimrc, 'onStartJedihttp', None)
             if onStartJedihttp:
