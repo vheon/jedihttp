@@ -35,9 +35,6 @@ if [[ ${TRAVIS_OS_NAME} == "osx" ]]; then
   eval "$(pyenv init -)"
 
   case "${TOXENV}" in
-    py26*)
-      PYTHON_VERSION=2.6.9
-      ;;
     py27*)
       PYTHON_VERSION=2.7.13
       ;;

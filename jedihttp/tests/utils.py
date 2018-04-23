@@ -26,10 +26,7 @@ try:
 except NameError:
     basestring = str
 
-try:
-    import unittest2 as unittest
-except ImportError:
-    import unittest
+import unittest
 
 py3only = unittest.skipIf(sys.version_info < (3, 0), "Python 3.x only test")
 py2only = unittest.skipIf(sys.version_info >= (3, 0), "Python 2.x only test")

@@ -17,7 +17,8 @@ import hmac
 import hashlib
 import tempfile
 from base64 import b64encode, b64decode
-from jedihttp.compatibility import encode_string, decode_string, compare_digest
+from hmac import compare_digest
+from jedihttp.compatibility import encode_string, decode_string
 
 
 def temporary_hmac_secret_file(secret):
